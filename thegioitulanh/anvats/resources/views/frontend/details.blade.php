@@ -125,7 +125,7 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
                
             </div>
             <div class="big">
-                <a data-fancybox="gallery" title="{{ $data->Name }}" href="{{ route('details', $data->Link) }}" class="MagicZoom" id="Zoomer" data-fancybox-group="button" rel="selectors-effect-speed: 600;">
+                <a data-fancybox="gallery" title="{{ $data->Name }}" href="{{ asset($data->Image) }}" class="MagicZoom" id="Zoomer" data-fancybox-group="button" rel="selectors-effect-speed: 600;">
                     <img src="{{ asset($data->Image) }}" alt="{{ $data->Name }}"><span class="tip ico"></span>
                 </a>
                 <div class="option" id="mini-deal-price">

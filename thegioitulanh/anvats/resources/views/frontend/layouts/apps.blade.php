@@ -47,6 +47,13 @@
             }
             }
         </script>
+        <style type="text/css">
+            #ui-id-1{
+                z-index: 999 !important;
+                background: #fff;
+                width: 20%;
+            }
+        </style>
     </head>
     <body class="module-home view-home">
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -61,7 +68,7 @@
                     </a>
                     <div class="box-search search">
                         <form method="get" action="{{ route('search-product-frontend') }}" enctype="multipart/form-data" name="searchForm">
-                            <input name="key" id="input-search" class="ip1" value="" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn..." autocomplete="off"  onkeyup="suggetSearch('product','#input-search',0,'.search-results-list')" />
+                            <input name="key" id="ip1" class="ip1" value="" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn..." />
                             <input class="btn" value="Tìm kiếm" type="submit" />
                         </form>
                         <div class="search-results">
@@ -207,18 +214,7 @@
                     </div>
                     <div class="space10px"></div>
                     <div class="space5px"></div>
-                    <div class="txt_center line_h22">
-                        <p class="format txt_green txt_b">Công ty Cổ Phần Thương Mại Điện Tử An Phú</p>
-                        <p class="format">Kho Đóng Tàu, Số 35 Ngõ 683 Nguyễn Khoái, P. Thanh Trì, Q. Hoàng Mai, Hà Nội</p>
-                        <p class="format">Mã số doanh nghiệp: 0107833607</p>
-                        <p class="format">Nơi cấp Giấy chứng nhận đăng ký doanh nghiệp: Sở Kế hoạch và Đầu tư – Thành phố Hà Nội</p>
-                        <p><a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=33624"><img src="/template/default/images/a3.jpg" alt=""/></a></p>
-                    </div>
-                    <div class="space10px"></div>
-                    <div class="ft-tag wrap line_h19">
-                        <b>Tìm kiếm nhiều:</b> <a href="https://dienmayabc.com/">muahangtaikho</a>, <a href="https://dienmayabc.com/tivi-lg.html?filter=%2C55-inch%2C">tivi LG 55 inch</a>, <a href="https://dienmayabc.com/tivi-samsung.html?filter=%2C55-inch%2C">tivi Samsung 55 inch</a>, <a href="https://dienmayabc.com/tivi-sony.html?filter=%2C55-inch%2C">tivi Sony 55 inch</a>, <a href="https://dienmayabc.com/tivi-sony.html?filter=%2C65-inch%2C">tivi Sony 65 inch</a>, <a href="https://dienmayabc.com/tivi-samsung.html?filter=%2C65-inch%2C">tivi Samsung 65 inch</a>
-                    </div>
-                    <div class="clear"></div>
+                    
                 </div>
                 <!--//ft-column-->
                 <div class="ft-column" style="margin-top:10px">
@@ -286,6 +282,7 @@
                 $(function() {
                 $("#ip1").autocomplete({
 
+
                     minLength: 2,
                     
                     source: function(request, response) {
@@ -298,6 +295,7 @@
                         });
                         $.ajax({
 
+                           
                             url: "{{  route('sugest-click')}}",
                             type: "POST",
                             data: {
@@ -306,6 +304,7 @@
                             },
                             dataType: "json",
                             success: function (data) {
+
                                 var items = data;
 
                                 response(items);
