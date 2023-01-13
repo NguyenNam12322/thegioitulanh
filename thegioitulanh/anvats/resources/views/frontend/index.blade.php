@@ -5,8 +5,8 @@
 <ul class="ul bxslider bxhome fomart">
     <li><a href="/ad.php?id=134" target='_blank' rel='nofollow'><img border=0 src="/media/banner/06_May6d927b394f434f16ee63f1527592c2fc.png" alt="" /></a></li>
     <li><a href="/ad.php?id=135" target='_blank' rel='nofollow'><img border=0 src="/media/banner/21_Novdcd4ff720e3ecb83f264242d73e202ec.png" alt="Mua tivi tại kho" /></a></li>
-    <li><a href="/ad.php?id=130" target='_blank' rel='nofollow'><img border=0 src="/media/banner/21_Novf118303817153f4a0617a49ca2c09acd.png" alt="mua tủ lạnh tại kho" /></a></li>
-    <li><a href="/ad.php?id=129" target='_blank' rel='nofollow'><img border=0 src="/media/banner/19_Mar0c973e13f92b24359d33f29fa20e7f55.png" alt="máy giặt" /></a></li>
+   <!--  <li><a href="/ad.php?id=130" target='_blank' rel='nofollow'><img border=0 src="/media/banner/21_Novf118303817153f4a0617a49ca2c09acd.png" alt="mua tủ lạnh tại kho" /></a></li>
+    <li><a href="/ad.php?id=129" target='_blank' rel='nofollow'><img border=0 src="/media/banner/19_Mar0c973e13f92b24359d33f29fa20e7f55.png" alt="máy giặt" /></a></li> -->
 </ul>
 <div class="clear space10px"></div>
 <div class="wrap">
@@ -15,8 +15,14 @@
             $hot = DB::table('hot')->select('product_id')->orderBy('orders', 'asc')->get()->pluck('product_id');
 
 
+             $product        = App\Models\groupProduct::find(3);
 
-            $data = DB::table('products')->whereIn('id', $hot->toArray())->orderBy('orders_hot', 'desc')->get();
+            $product_tl      = json_decode($product->product_id);
+
+
+            $data   =  App\Models\product::whereIn('id',  $product_tl)->orderBy('id', 'desc')->where('active', 1)->take(40)->get();
+
+           
         ?>
         @if($data->count()>0)
         @foreach($data as $datas)
@@ -32,9 +38,7 @@
             </p>
             <!-- <p class="mprice">104.900.000 <u>đ</u></p> -->
             <p class="star"><i class="vstar"><i class="star-0"></i></i> (0 nhận xét)</p>
-            <p class="stock"><i class="fa fa-shopping-cart"></i> Còn hàng
-                <i class="check"><input type="checkbox" name="{{ route('details', $datas->Link) }}" class="p_check" id="compare_box_3695" onclick="add_compare_product(3695);"></i>
-            </p>
+            
         </div>
         @endforeach
         @endif

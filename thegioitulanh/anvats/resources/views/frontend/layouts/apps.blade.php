@@ -21,7 +21,7 @@
         <meta property="og:title" content="Mua hàng tại kho - Siêu thị điện máy ABC" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dienmayabc.com/" />
-        <meta property="og:image" content="https://dienmayabc.com/media/banner/logo_logo-abc.png">
+        <!-- <meta property="og:image" content="https://dienmayabc.com/media/banner/logo_logo-abc.png"> -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Array
             (
@@ -35,18 +35,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ asset('template/default/script/style.css') }}" rel="stylesheet">
 
-        <script type="application/ld+json">
-            {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "url": "https://dienmayabc.com",
-            "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://dienmayabc.com/tim?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-            }
-            }
-        </script>
+        
         <style type="text/css">
             #ui-id-1{
                 z-index: 999 !important;
@@ -64,7 +53,7 @@
                 <meta name="google-site-verification" content="VZ6xUK4LvjzzKg4DnXDrU0eGXa37Bk4IGdXP8cUFcZ0" />
                 <div class="wrap">
                     <a class="logo" href="/">
-                        <h1 class="format"><img alt="dienmayabc" src="/media/banner/logo_logo-abc.png"/></h1>
+                        <h1 class="format"><img alt="dienmayabc" src="/media/banner/cropped-logo.png"/></h1>
                     </a>
                     <div class="box-search search">
                         <form method="get" action="{{ route('search-product-frontend') }}" enctype="multipart/form-data" name="searchForm">

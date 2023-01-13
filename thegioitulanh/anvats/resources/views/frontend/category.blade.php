@@ -24,10 +24,7 @@
     </div>
     <!--breadcrumb-->
     <div class="clear"></div>
-    <div class="bn-list" style="display:flex; justify-content: center;">
-        <div class="itm fl"><a href="/ad.php?id=139" target="_blank" rel="nofollow"><img border="0" src="/media/banner/26_Nov5799aacfe6adde232a8433c44e9a6279.jpg" width="595" height="215" alt=""></a></div>
-        <div class="itm fl"><a href="/ad.php?id=136" target="_blank" rel="nofollow"><img border="0" src="https://dienmayabc.com/media/lib/may-giatcopy.jpg" width="595" height="215" alt="1 doi 1 30 ngay"></a></div>
-    </div>
+    
     <div class="clear space5px"></div>
     <div class="pd-left">
         <h1 class="format txt_14">Tủ lạnh</h1>
@@ -125,7 +122,7 @@
             @if(isset($propertyId))
             @foreach($propertyId as $property)
             <li>
-                <input  type="checkbox" name="property" value="{{ $property->id }}"> 
+                <input  type="checkbox" name="property" value="{{ $property->id }}" onclick = "filterClick({{ $property->id }})" id="filterClick{{ $property->id }}"> 
                 <h2 class="format txt_13 txt_n"><a href="/tu-lanh-hitachi.html">{{ $property->name}}</a></h2>
             </li>
             @endforeach
@@ -144,10 +141,52 @@
 </div>
 
 <script type="text/javascript">
-    $('input:checkbox[name=property]').each(function() 
-    {    
-        if($(this).is(':checked'))
-          alert($(this).val());
-    });
+
+     function filterClick(id) {
+        var checked = $('#filterClick'+id).is(':checked'); 
+
+        checked_fil = [];
+
+        if(checked == true){
+            checked_fil.push(id);
+            
+        }   
+        else{
+            var index = checked_fil.indexOf(id);
+            if (index !== -1) {
+              checked_fil.splice(index, 1);
+            }
+        } 
+
+        checked_fil = [...new Set(checked_fil)];
+       
+
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('filter-checkbox') }}",
+                data: {
+                    data: JSON.stringify(checked_fil),
+                   
+                },
+               
+                success: function(result){
+
+                    $('.product-list').html('');
+
+                    $('.product-list').append(result)
+
+
+                
+                    
+                }
+            });
+
+    }
 </script>
 @endsection

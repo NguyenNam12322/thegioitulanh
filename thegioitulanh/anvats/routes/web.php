@@ -44,6 +44,8 @@ Route::get('/cache', 'Frontend\indexController@cache')->name('cache');
 Route::get('/ckfinder.html', 'mainController@ckfinder')->middleware('auth');
 
 
+Route::post('filter-checkbox', 'Frontend\categoryController@filterBycheckbox')->name('filter-checkbox');
+
 Route::get('/landingpage', 'mainController@landingpage')->name('landingpageFe');
 
 

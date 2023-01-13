@@ -344,6 +344,45 @@ class categoryController extends Controller
             return $data;
         }    
 
+    }
+
+    public function filterBycheckbox(Request $request)
+    {
+        $data = json_decode($request->data);
+
+
+        $data_pd = [];
+
+        if(count($data)>0){
+
+            foreach ($data as $key => $value) {
+
+                $products = groupProduct::find($value);
+
+                if(!empty($products) && !empty($products->product_id)){
+
+                    $ar_pd =  json_decode($products->product_id);
+
+                    if(count($ar_pd)){
+
+                        foreach ($ar_pd as  $value) {
+
+                            array_push($data_pd, $value);
+
+                        }
+
+                    }
+                   
+                }
+
+                
+            }               
+        }
+
+        $product = product::whereIn('id', $data_pd)->get();
+
+        return view('frontend.ajax.filter_click', compact('product'));
+        
     }    
 
 
