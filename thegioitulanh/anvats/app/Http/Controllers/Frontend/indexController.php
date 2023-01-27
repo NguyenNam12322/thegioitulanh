@@ -120,23 +120,23 @@ class indexController extends Controller
     public function cache()
     {
         
-        $data = json_decode(filter::find(20)->value, true);
+        // $data = json_decode(filter::find(20)->value, true);
 
-        dd($data[50]);
+        // dd(1);
 
-        // $deal = deal::OrderBy('order', 'desc')->get();
+        $deal = deal::OrderBy('order', 'desc')->get();
 
 
-        // $groups = groupProduct::select('id','name', 'link')->where('parent_id', 0)->get();
+        $groups = groupProduct::select('id','name', 'link')->where('parent_id', 0)->get();
 
-        // if($deal->count()>0){
+        if($deal->count()>0){
 
-        //     $deal_start = $deal->first()->start;
+            $deal_start = $deal->first()->start;
 
-        //     cache::put('deal_start', $deal_start,10000);
+            cache::put('deal_start', $deal_start,10000);
 
-        // }
-        // Cache::put('groups', $groups,10000);
+        }
+        Cache::put('groups', $groups,10000);
 
     }
 
