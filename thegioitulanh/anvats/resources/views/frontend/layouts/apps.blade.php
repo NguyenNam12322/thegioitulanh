@@ -5,20 +5,19 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mua hàng tại kho - Siêu thị điện máy ABC</title>
+        <title>Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ</title>
         <!--meta-->
-        <meta name="title" content="Mua hàng tại kho - Siêu thị điện máy ABC"/>
-        <meta name="keywords" content="mua hàng tại kho, mua hang tai kho, sieu thi dien may, siêu thị điện máy, điện máy abc, dien may abc, dienmayabc, sieu thi dien may abc, siêu thị điện máy abc"/>
-        <meta name="description" content="Siêu Thị Điện Máy ABC Cam Kết Tất Cả Sản Phẩm Chính Hãng, Mới 100% Nguyên Đai Nguyên Kiện, Muahangtaikho - Mua Hàng Tại Kho"/>
+        <meta name="title" content="Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ"/>
+        <meta name="description" content="Thế Giới Tủ Lạnh, mua sắm tủ lạnh online tại thegioitulanh.vn giá rẻ chính hãng phục vụ chuyên nghiệp. Nhiều ưu đãi, giao và lắp đặt miễn phí"/>
         <meta content="document" name="resource-type" />
         <meta content="1800" http-equiv="refresh" />
         <meta name="robots" content="index,follow" />
         <meta name="revisit-after" content="1 days" />
         <meta http-equiv="content-language" content="vi-vn" />
-        <link rel="alternate" type="application/rss+xml" title="RSS Feed for https://dienmayabc.com" href="/product.rss" />
+        <!-- <link rel="alternate" type="application/rss+xml" title="RSS Feed for https://dienmayabc.com" href="/product.rss" /> -->
         <meta property="fb:admins" content=""/>
         <meta property="fb:app_id" content="893882260753407" />
-        <meta property="og:title" content="Mua hàng tại kho - Siêu thị điện máy ABC" />
+        <meta property="og:title" content="Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dienmayabc.com/" />
         <!-- <meta property="og:image" content="https://dienmayabc.com/media/banner/logo_logo-abc.png"> -->
@@ -31,7 +30,7 @@
             )
             1 -->
         <!--style-->
-        <link rel="shortcut icon" href="{{ asset('template/default/images/favicon.ico')}}  ">
+        <link rel="shortcut icon" href="{{ asset('media/banner/cropped-logo.png')  }}">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ asset('template/default/script/style.css') }}" rel="stylesheet">
 
@@ -43,6 +42,8 @@
                 width: 20%;
             }
         </style>
+
+         @stack('css')
     </head>
     <body class="module-home view-home">
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -53,7 +54,7 @@
                 <meta name="google-site-verification" content="VZ6xUK4LvjzzKg4DnXDrU0eGXa37Bk4IGdXP8cUFcZ0" />
                 <div class="wrap">
                     <a class="logo" href="/">
-                        <h1 class="format"><img alt="dienmayabc" src="/media/banner/cropped-logo.png"/></h1>
+                        <h1 class="format"><img alt="thegioitulanh" src="{{ asset('media/banner/cropped-logo.png')  }}"/></h1>
                     </a>
                     <div class="box-search search">
                         <form method="get" action="{{ route('search-product-frontend') }}" enctype="multipart/form-data" name="searchForm">
@@ -141,7 +142,7 @@
 
             <div class="clear"></div>
             <div class="footer">
-                <div class="wrap">
+                <!-- <div class="wrap">
                     <div class="infor">
                         <p class="name txt_b">Mua Hàng Trực Tuyến </p>
                         <div class="img">
@@ -153,15 +154,15 @@
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
-                </div>
+                </div> -->
                 <!--//infor-->
                 <div class="ft-column">
                     <div class="wrap">
                         <ul class="ft-group">
-                            <li class="name one">Về điện máy ABC</li>
-                            <li><a href="/gioi-thieu">Giới thiệu công ty</a></li>
-                            <li><a href="/tuyen-dung.html">Tuyển dụng</a></li>
-                            <li><a href="/lien-he">Liên hệ góp ý</a></li>
+                            
+                            <li><a href="#">Giới thiệu công ty</a></li>
+                            <li><a href="#">Tuyển dụng</a></li>
+                            <li><a href="#">Liên hệ góp ý</a></li>
                         </ul>
                         <ul class="ft-group">
                             <li class="name">Chính sách và quy định</li>
@@ -172,47 +173,16 @@
                             <li><a href="/chinh-sach-bao-hanh">Chính sách bảo hành</a></li>
                             <li><a href="/quy-dinh-thanh-toan">Quy định thanh toán</a></li>
                         </ul>
-                        <ul class="ft-group">
-                            <li class="name">Hướng dẫn sử dụng</li>
-                            <li><a href="/huong-dan-mua-hang">Hướng dẫn mua hàng</a></li>
-                            <li><a href="/huong-dan-thanh-toan">Hướng dẫn thanh toán</a></li>
-                            <li><a href="/gia-va-cong-lap-dat-dieu-hoa">Vật tư và công lắp đặt điều hòa</a></li>
-                        </ul>
-                        <ul class="ft-group four">
-                            <li class="name">Liên hệ</li>
-                            <li class="phone ico txt_777">
-                                <p class="format txt_red txt_18">0967 025 111</p>
-                                (từ 7h30 đến 22h tất cả các ngày)
-                            </li>
-                            <li class="email ico">
-                                abcdienmay@gmail.com
-                                <br>
-                                CSKH: <span class="txt_b txt_13">02438 615 111</span>
-                            </li>
-                        </ul>
-                        <ul class="ft-group five">
-                            <li class="name">Kết nối với chúng tôi</li>
-                            <li>
-                                <script src="https://apis.google.com/js/platform.js"></script>
-                                <div>
-                                    <a href="https://www.facebook.com/dienmayabc.vn/"><img src="/template/default/images/icfb.png"/></a>
-                                </div>
-                            </li>
-                        </ul>
+                        
+                        
+                      
                         <div class="clear"></div>
                     </div>
                     <div class="space10px"></div>
                     <div class="space5px"></div>
                     
                 </div>
-                <!--//ft-column-->
-                <div class="ft-column" style="margin-top:10px">
-                    <div class="wrap">
-                        Copyright ©2017 https://dienmayabc.com. <a href="?show_version=mobile" rel="nofollow">Xem phiên bản Mobile</a>
-                        <div class="clear space5px"></div>
-                    </div>
-                </div>
-                <!--//ft-column-->
+              
             </div>
             <a href="tel:0967025111" class="icon-call transition"><img src="/template/default/images/icon_goi-ngay_pc.png?v=1.1.1" style="max-width:122px;" alt=""></a>  
         </div>
@@ -314,5 +284,3 @@
        
     </body>
 </html>
-<!-- Load time: 0.05 seconds  / 2 mb-->
-<!-- Powered by HuraStore 7.4.4, Released: 12-Aug-2018 / Website: www.hurasoft.vn -->

@@ -100,7 +100,7 @@
         <div class="clear"></div>
     </div>
     <!--//pd-left-->
-    <div class="pd-right att-list">
+    <!-- <div class="pd-right att-list">
 
         @if(isset($filter))
         @foreach($filter as $filters)
@@ -123,7 +123,7 @@
             @foreach($propertyId as $property)
             <li>
                 <input  type="checkbox" name="property" value="{{ $property->id }}" onclick = "filterClick({{ $property->id }})" id="filterClick{{ $property->id }}"> 
-                <h2 class="format txt_13 txt_n"><a href="/tu-lanh-hitachi.html">{{ $property->name}}</a></h2>
+                <h2 class="format txt_13 txt_n"><a href="/tu-lanh-hitachi.html">{{ $property->name}} </a></h2>
             </li>
             @endforeach
             @endif
@@ -134,7 +134,7 @@
         @endforeach
         @endif
         
-    </div>
+    </div> -->
     <!--//pd-right-->
     <div class="clear"></div>
     <div class="clear"></div>
@@ -181,9 +181,6 @@
 
                     $('.product-list').append(result)
 
-
-                
-                    
                 }
             });
 

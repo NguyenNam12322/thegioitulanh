@@ -11,6 +11,7 @@ use App\Models\deal;
 use App\Models\product;
 use Carbon\Carbon;
 use Session;
+use App\Models\filter;
 
 use Auth;
 use DB;
@@ -118,20 +119,24 @@ class indexController extends Controller
 
     public function cache()
     {
-       
-        $deal = deal::OrderBy('order', 'desc')->get();
+        
+        $data = json_decode(filter::find(20)->value, true);
+
+        dd($data[50]);
+
+        // $deal = deal::OrderBy('order', 'desc')->get();
 
 
-        $groups = groupProduct::select('id','name', 'link')->where('parent_id', 0)->get();
+        // $groups = groupProduct::select('id','name', 'link')->where('parent_id', 0)->get();
 
-        if($deal->count()>0){
+        // if($deal->count()>0){
 
-            $deal_start = $deal->first()->start;
+        //     $deal_start = $deal->first()->start;
 
-            cache::put('deal_start', $deal_start,10000);
+        //     cache::put('deal_start', $deal_start,10000);
 
-        }
-        Cache::put('groups', $groups,10000);
+        // }
+        // Cache::put('groups', $groups,10000);
 
     }
 

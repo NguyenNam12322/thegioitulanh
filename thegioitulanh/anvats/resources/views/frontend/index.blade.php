@@ -2,9 +2,30 @@
 
 @section('content')
 
+ @push('css')
+
+ <style type="text/css">
+    @media only screen and (max-width: 767px) {
+        .wrapper {
+            min-width: unset;
+        }
+        .product-list{
+            width: 100%;
+        }
+        .product{
+            width: 50%;
+        }
+    }
+
+ </style>
+
+ @endpush
+
 <ul class="ul bxslider bxhome fomart">
-    <li><a href="/ad.php?id=134" target='_blank' rel='nofollow'><img border=0 src="/media/banner/06_May6d927b394f434f16ee63f1527592c2fc.png" alt="" /></a></li>
-    <li><a href="/ad.php?id=135" target='_blank' rel='nofollow'><img border=0 src="/media/banner/21_Novdcd4ff720e3ecb83f264242d73e202ec.png" alt="Mua tivi tại kho" /></a></li>
+    <li>
+        <a href="/ad.php?id=134" target='_blank' rel='nofollow'><img border=0 src="https://thegioitulanh.vn/wp-content/uploads/2021/04/Inkedbanner-2021_LI.jpg" alt="" /></a>
+    </li>
+   
    <!--  <li><a href="/ad.php?id=130" target='_blank' rel='nofollow'><img border=0 src="/media/banner/21_Novf118303817153f4a0617a49ca2c09acd.png" alt="mua tủ lạnh tại kho" /></a></li>
     <li><a href="/ad.php?id=129" target='_blank' rel='nofollow'><img border=0 src="/media/banner/19_Mar0c973e13f92b24359d33f29fa20e7f55.png" alt="máy giặt" /></a></li> -->
 </ul>
