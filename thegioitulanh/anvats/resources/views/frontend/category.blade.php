@@ -2,6 +2,23 @@
 @section('content')
 
 
+<style type="text/css">
+    @media only screen and (max-width: 768px) {
+        .pd-left{
+            width: 100%;
+        }
+        .pd-right{
+            width: 100%;
+        }
+        .product{
+            width: 49%;
+        }
+        .fb-comments{
+            display: none;
+        }
+    }
+</style>
+
 <div class="container wrap">
     <!--default-->
     <div id="breadcrumb">
@@ -28,6 +45,8 @@
     <div class="clear space5px"></div>
     <div class="pd-left">
         <h1 class="format txt_14">Tủ lạnh</h1>
+
+
         <div class="product-list">
             @if(isset($data))
             @foreach($data as $value)
@@ -100,7 +119,7 @@
         <div class="clear"></div>
     </div>
     <!--//pd-left-->
-    <!-- <div class="pd-right att-list">
+    <div class="pd-right att-list">
 
         @if(isset($filter))
         @foreach($filter as $filters)
@@ -121,8 +140,8 @@
         <ul class="ul">
             @if(isset($propertyId))
             @foreach($propertyId as $property)
-            <li>
-                <input  type="checkbox" name="property" value="{{ $property->id }}" onclick = "filterClick({{ $property->id }})" id="filterClick{{ $property->id }}"> 
+            <li class="filters-{{ $filters->id }}">
+                <input  type="checkbox" name="property" value="{{ $property->id }}" onclick = "filterClick({{ $property->id }}, {{ $filters->id }})" id="filterClick{{ $property->id }}" data-id="{{ $filters->id }}"> 
                 <h2 class="format txt_13 txt_n"><a href="/tu-lanh-hitachi.html">{{ $property->name}} </a></h2>
             </li>
             @endforeach
@@ -134,7 +153,7 @@
         @endforeach
         @endif
         
-    </div> -->
+    </div>
     <!--//pd-right-->
     <div class="clear"></div>
     <div class="clear"></div>
@@ -142,14 +161,17 @@
 
 <script type="text/javascript">
 
-     function filterClick(id) {
+     function filterClick(id,filterId) {
         var checked = $('#filterClick'+id).is(':checked'); 
 
         checked_fil = [];
 
         if(checked == true){
-            checked_fil.push(id);
             
+            $('#filterClick'+id).parent().removeClass('filters-'+filterId);
+
+            $('.filters-'+filterId).hide();
+           
         }   
         else{
             var index = checked_fil.indexOf(id);
@@ -159,30 +181,35 @@
         } 
 
         checked_fil = [...new Set(checked_fil)];
+
        
 
-        $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
         
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('filter-checkbox') }}",
-                data: {
-                    data: JSON.stringify(checked_fil),
-                   
-                },
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('filter-checkbox') }}",
+            data: {
+                datas: id,
+                id:filterId
                
-                success: function(result){
+            },
+           
+            success: function(result){
 
-                    $('.product-list').html('');
 
-                    $('.product-list').append(result)
+                $('.product-list').html('');
 
-                }
-            });
+                $('.product-list').append(result)
+
+            }
+        });
 
     }
 </script>

@@ -348,36 +348,48 @@ class categoryController extends Controller
 
     public function filterBycheckbox(Request $request)
     {
-        $data = json_decode($request->data);
+        $datas = $request->datas;
+
+        $id   = $request->id;
+
+        $filter = filter::find($id);
+
+        $data = json_decode($filter['value'],true);
+
+        $data_pd = $data[$datas];
 
 
-        $data_pd = [];
+        
 
-        if(count($data)>0){
+        // $data_pd = [];
 
-            foreach ($data as $key => $value) {
+        // if(count($data)>0){
 
-                $products = groupProduct::find($value);
+        //     foreach ($data as $key => $value) {
 
-                if(!empty($products) && !empty($products->product_id)){
+        //         $products = groupProduct::find($value);
 
-                    $ar_pd =  json_decode($products->product_id);
+        //         if(!empty($products) && !empty($products->product_id)){
 
-                    if(count($ar_pd)){
+        //             $ar_pd =  json_decode($products->product_id);
 
-                        foreach ($ar_pd as  $value) {
+        //             if(count($ar_pd)){
 
-                            array_push($data_pd, $value);
+        //                 foreach ($ar_pd as  $value) {
 
-                        }
+        //                     array_push($data_pd, $value);
 
-                    }
+        //                 }
+
+        //             }
                    
-                }
+        //         }
 
                 
-            }               
-        }
+        //     }               
+        // }
+
+        
 
         $product = product::whereIn('id', $data_pd)->get();
 
@@ -436,6 +448,16 @@ class categoryController extends Controller
         
 
         return $groupProduct_info;
+    }
+
+
+    public function test()
+    {
+        $data = filter::find(20);
+
+        $data = json_decode($data['value'],true);
+
+        dd($data[50]);
     }
 
    

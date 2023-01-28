@@ -13,7 +13,7 @@
             width: 100%;
         }
         .product{
-            width: 50%;
+            width: 49%;
         }
     }
 

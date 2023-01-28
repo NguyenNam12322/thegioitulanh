@@ -16,6 +16,8 @@
 
     ?>
 
+
+
 <?php
 
 $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
@@ -51,7 +53,9 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
             });
 
         }
-?>        
+?>   
+
+
 <div class="container wrap">
     <div id="breadcrumb">
         <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
@@ -64,19 +68,22 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
             <!--  -->
             <!-- 2 -->
 
-             @if(!empty($groupLink))
+            @if(!empty($groupLink))
+
+
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="{{ route('details', $groupLink??'') }}">
+                <a itemprop="item" href="">
                 <span itemprop="name">{{ @$groupName }}</span>
                 </a> <span class="bre-chia"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                 <meta itemprop="position" content="2">
             </li>
 
-             @endif
+
+            @endif
             <!-- 3 -->
              @if(!empty($thuonghieu[$data_cate])&& !empty($ar_groups_info))
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="{{ route('details',$ar_groups_info[0]['link']) }}">
+                <a itemprop="item" href="{{ route('details', $ar_groups_info[0]['link']) }}">
                 <span itemprop="name">{{ $ar_groups_info[0]['name'] }}</span>
                 </a> <span class="bre-chia"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                 <meta itemprop="position" content="3">
@@ -85,7 +92,7 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
              @endif
             <!-- 4 -->
             <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="{{ route('details', $data->Detail) }}">
+                <a itemprop="item" href="{{ route('details', $data->Link) }}">
                 <span itemprop="name">{{ $data->Name }}</span>
                 </a> <span class="bre-chia"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                 <meta itemprop="position" content="4">
@@ -124,6 +131,8 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
                 @endif
                
             </div>
+
+
             <div class="big">
                 <a data-fancybox="gallery" title="{{ $data->Name }}" href="{{ asset($data->Image) }}" class="MagicZoom" id="Zoomer" data-fancybox-group="button" rel="selectors-effect-speed: 600;">
                     <img src="{{ asset($data->Image) }}" alt="{{ $data->Name }}"><span class="tip ico"></span>

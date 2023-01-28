@@ -41,6 +41,54 @@
                 background: #fff;
                 width: 20%;
             }
+
+            .icon-mobile-bar{
+                display: none;
+            }
+
+
+
+            @media only screen and (max-width: 768px) {
+
+                .wrap{
+                    width: 100% !important;
+                }
+                .header{
+                    display: none;
+                }
+                .menu-top li{
+                    width: 100%;
+                }
+                .icon-mobile-bar{
+                    display: block;
+                }
+
+                .wrap ul{
+                    display: none;
+                    height: 258px;
+                }
+
+                .headers .wrap{
+                    background: #DFA99E;
+                }
+
+                .wrapper{
+                    min-width: 100% !important;
+                }
+
+            }  
+
+
+            @media only screen and (min-width: 769px) {
+
+                .headers{
+                    display: none;
+                }
+
+            }    
+ 
+
+            
         </style>
 
          @stack('css')
@@ -93,9 +141,37 @@
                     <div class="clear"></div>
                 </div>
             </div>
+
+
+            <div class="headers">
+               
+                <div class="wrap">
+                    <a class="logo" href="/">
+                        <h1 class="format"><img alt="thegioitulanh" src="{{ asset('media/banner/cropped-logo.png')  }}"/></h1>
+                    </a>
+                   
+                   
+
+                    <?php 
+                        $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
+                                                    
+                        $number_cart_home = count($cart);
+
+                    ?>
+        
+                    <div class="cart">
+                        <a href="{{ route('cart-tgtl') }}" rel="nofollow"><i class="fa fa-shopping-cart"></i> Giỏ hàng
+                        <span id="count_shopping_cart_store">{{ $number_cart_home  }}</span>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
           
             <div class="navigation">
                 <div class="wrap menu-top">
+
+                    <div class="icon-mobile-bar"><button><i class="fa fa-bars" aria-hidden="true"></i></button></div>
                     <ul>
                         <?php 
                             $listmenu = App\Models\groupProduct::where('parent_id', 35)->get();
@@ -239,45 +315,58 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function() {
-                $("#ip1").autocomplete({
+                    $("#ip1").autocomplete({
 
 
-                    minLength: 2,
-                    
-                    source: function(request, response) {
-                        $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-
-
-                        });
-                        $.ajax({
-
-                           
-                            url: "{{  route('sugest-click')}}",
-                            type: "POST",
-                            data: {
-                                "_token": "{{ csrf_token() }}",
-                                product:$('#ip1').val()
-                            },
-                            dataType: "json",
-                            success: function (data) {
-
-                                var items = data;
-
-                                response(items);
-
-                                $('#ui-id-1').html();
-
-                                $('#ui-id-1').html(data);
-                            
+                        minLength: 2,
+                        
+                        source: function(request, response) {
+                            $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             }
-                        });
-                    },
-                    html:true,
+
+
+                            });
+                            $.ajax({
+
+                               
+                                url: "{{  route('sugest-click')}}",
+                                type: "POST",
+                                data: {
+                                    "_token": "{{ csrf_token() }}",
+                                    product:$('#ip1').val()
+                                },
+                                dataType: "json",
+                                success: function (data) {
+
+                                    var items = data;
+
+                                    response(items);
+
+                                    $('#ui-id-1').html();
+
+                                    $('#ui-id-1').html(data);
+                                
+                                }
+                            });
+                        },
+                        html:true,
+                    });
                 });
-            });
+
+
+                $('.icon-mobile-bar button').click(function () {
+
+                    if($('.menu-top ul').is(":visible")){
+
+                        $('.menu-top ul').hide();
+                    }
+                    else{
+                         $('.menu-top ul').show();
+                    }
+
+                })
             });    
         </script>
        

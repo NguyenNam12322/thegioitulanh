@@ -28,6 +28,9 @@ Route::post('/check-unique-cate', 'productController@filterProduct')->name('chec
 
 Route::get('/random-deal', 'crawlController@randomOrderDeal');
 
+
+Route::get('/test', 'Frontend\categoryController@test');
+
 Route::get('/cart-details', 'Frontend\indexController@showCart');
 
 Route::post('get-compare-pd-viewer', 'productController@getPDviewer')->name('ajax-compare-viewerPd');
