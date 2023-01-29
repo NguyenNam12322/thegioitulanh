@@ -2,6 +2,15 @@
 
 @section('content')
 
+
+<style type="text/css">
+    
+    @media only screen and (max-width: 768px) {
+        .prod-info-left, .prod-info, .col-left{
+            width: 100% !important;
+        }
+    }   
+</style>
 <?php
     if($data->Quantily==0||$data['Price']==0){
         $status ='Tạm hết hàng';
@@ -203,7 +212,7 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
                 <div class="clear"></div>
             </div>
             <!--//prod-info-left -->
-            <div class="prod-info-right fr">
+            <!-- <div class="prod-info-right fr">
                 <h4 class="format txt_13">
                     <p class="format txt_b">Cam kết đặc biệt:</p>
                 </h4>
@@ -221,7 +230,7 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
                 </h5>
                
                 <div class="clear"></div>
-            </div>
+            </div> -->
             <!--right-->
             <div class="clear"></div>
         </div>
@@ -320,88 +329,12 @@ $thuonghieu = [1 => 5, 3 => 35, 2 =>56, 4 =>76, 6=>115, 7=>129];
     <div class="clear"></div>
     <div class="footer">
         <div class="wrap">
-            <div class="infor">
-                <p class="name txt_b">Mua Hàng Trực Tuyến </p>
-                <div class="img">
-                    <img src="/media/lib/789_favicon.png" alt="" width="80">
-                </div>
-                <div class="cont txt_555 line_h22">
-                     chúng tôi tích lũy kinh nghiệm hơn 20 năm, ấp ủ mong muốn mang những sản phẩm điện máy có chất lượng tốt, thân thiện với môi trường, thân thiện với cuộc sống của người dân Việt.
-                </div>
-                <div class="clear"></div>
-            </div>
+            
             <div class="clear"></div>
         </div>
-        <!--//infor-->
-        <div class="ft-column">
-            <div class="wrap">
-                <ul class="ft-group">
-                    <li class="name one">Về điện máy ABC</li>
-                    <li><a href="/gioi-thieu">Giới thiệu công ty</a></li>
-                    <li><a href="/tuyen-dung.html">Tuyển dụng</a></li>
-                    <li><a href="/lien-he">Liên hệ góp ý</a></li>
-                </ul>
-                <ul class="ft-group">
-                    <li class="name">Chính sách và quy định</li>
-                    <li><a href="/chinh-sach-bao-mat">Chính sách bảo mật</a></li>
-                    <li><a href="/chinh-sach-giao-hang">Chính sách vận chuyển</a></li>
-                    <li><a href="chinh-sach-kiem-hang.html">Chính sách kiểm hàng</a></li>
-                    <li><a href="/chinh-sach-doi-hang">Chính sách đổi hàng</a></li>
-                    <li><a href="/chinh-sach-bao-hanh">Chính sách bảo hành</a></li>
-                    <li><a href="/quy-dinh-thanh-toan">Quy định thanh toán</a></li>
-                </ul>
-                <ul class="ft-group">
-                    <li class="name">Hướng dẫn sử dụng</li>
-                    <li><a href="/huong-dan-mua-hang">Hướng dẫn mua hàng</a></li>
-                    <li><a href="/huong-dan-thanh-toan">Hướng dẫn thanh toán</a></li>
-                    <li><a href="/gia-va-cong-lap-dat-dieu-hoa">Vật tư và công lắp đặt điều hòa</a></li>
-                </ul>
-                <ul class="ft-group four">
-                    <li class="name">Liên hệ</li>
-                    <li class="phone ico txt_777">
-                        <p class="format txt_red txt_18">0967 025 111</p>
-                        (từ 7h30 đến 22h tất cả các ngày)
-                    </li>
-                    <li class="email ico">
-                        abcdienmay@gmail.com
-                        <br>
-                        CSKH: <span class="txt_b txt_13">02438 615 111</span>
-                    </li>
-                </ul>
-                <ul class="ft-group five">
-                    <li class="name">Kết nối với chúng tôi</li>
-                    <li>
-                        <script src="https://apis.google.com/js/platform.js" gapi_processed="true"></script>
-                        <div>
-                            <a href="https://www.facebook.com/dienmayabc.vn/"><img src="/template/default/images/icfb.png"></a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="clear"></div>
-            </div>
-            <div class="space10px"></div>
-            <div class="space5px"></div>
-            <div class="txt_center line_h22">
-                <p class="format txt_green txt_b">Công ty Cổ Phần Thương Mại Điện Tử An Phú</p>
-                <p class="format">Kho Đóng Tàu, Số 35 Ngõ 683 Nguyễn Khoái, P. Thanh Trì, Q. Hoàng Mai, Hà Nội</p>
-                <p class="format">Mã số doanh nghiệp: 0107833607</p>
-                <p class="format">Nơi cấp Giấy chứng nhận đăng ký doanh nghiệp: Sở Kế hoạch và Đầu tư – Thành phố Hà Nội</p>
-                <p><a href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=33624"><img src="/template/default/images/a3.jpg" alt=""></a></p>
-            </div>
-            <div class="space10px"></div>
-            <div class="ft-tag wrap line_h19">
-                <b>Tìm kiếm nhiều:</b> <a href="https://dienmayabc.com/">muahangtaikho</a>, <a href="https://dienmayabc.com/tivi-lg.html?filter=%2C55-inch%2C">tivi LG 55 inch</a>, <a href="https://dienmayabc.com/tivi-samsung.html?filter=%2C55-inch%2C">tivi Samsung 55 inch</a>, <a href="https://dienmayabc.com/tivi-sony.html?filter=%2C55-inch%2C">tivi Sony 55 inch</a>, <a href="https://dienmayabc.com/tivi-sony.html?filter=%2C65-inch%2C">tivi Sony 65 inch</a>, <a href="https://dienmayabc.com/tivi-samsung.html?filter=%2C65-inch%2C">tivi Samsung 65 inch</a>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <!--//ft-column-->
-        <div class="ft-column" style="margin-top:10px">
-            <div class="wrap">
-                Copyright ©2017 https://dienmayabc.com. <a href="?show_version=mobile" rel="nofollow">Xem phiên bản Mobile</a>
-                <div class="clear space5px"></div>
-            </div>
-        </div>
-        <!--//ft-column-->
+      
+        
+       
     </div>
     <a href="javascript:void(0)" onclick="addToShoppingCart('pro','3740',document.getElementById('s_quantity').value,'23490000');" class="icon-order transition"><img src="/template/default/images/icon_dat-hang-ngay_pc.png?v=1.1.1" style="max-width:122px;" alt=""></a>
     <a href="tel:0967025111" class="icon-call transition"><img src="/template/default/images/icon_goi-ngay_pc.png?v=1.1.1" style="max-width:122px;" alt=""></a>  

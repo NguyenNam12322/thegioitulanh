@@ -20,7 +20,7 @@
         <meta property="og:title" content="Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dienmayabc.com/" />
-        <!-- <meta property="og:image" content="https://dienmayabc.com/media/banner/logo_logo-abc.png"> -->
+       
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Array
             (
@@ -266,15 +266,8 @@
 
         @stack('js')
 
-        
-        <!--style-->
-        <!--begin: system-->
-        <!-- <script defer src="/javascript/dist/hurastore.js?v=2.2.21"></script>
-        <!--//end: system-->
-        <!--begin: plugin-->
-       <!--  <script defer src="/includes/js/common.js?v=2.2.21"></script> -->
         <script defer src="/template/default/script/plugin.js?v=2.2.21"></script>
-        <script defer src="/template/default/script/init.js?v=2.2.21"></script> -->
+        <script defer src="/template/default/script/init.js?v=2.2.21"></script>
         <!--//end: plugin-->
         <!---global-->
         <script>
