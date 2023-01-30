@@ -483,6 +483,7 @@ class categoryController extends Controller
 
         $name_cate = $category->namecategory;
 
+
         $meta = metaSeo::find($data->Meta_id);
 
         // đếm số lượt view

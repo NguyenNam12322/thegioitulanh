@@ -15,6 +15,13 @@
         .product{
             width: 49%;
         }
+        .ah-item{
+            width: 100%;
+        } 
+        .ah-item .title{
+            width: 100%;
+            padding: 0;
+        }
     }
 
  </style>

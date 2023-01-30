@@ -5,7 +5,30 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ</title>
+
+        @if(!empty($data->Name))
+
+            <?php 
+                $title_seo = $data->Name.' - '.'Thế Giới Tủ Lạnh';
+               
+            ?>
+        @else
+        
+            @if(!empty($namecate))
+
+                <?php 
+
+                    dd($namecate);
+                ?>
+
+                <?php 
+                    $title_seo = $namecate.' chính hãng tại kho - Thế giới tủ lạnh';
+                   
+                ?>
+            
+            @endif     
+        @endif
+        <title>{{ !empty($title_seo)?$title_seo:'Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ'  }}</title>
         <!--meta-->
         <meta name="title" content="Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ"/>
         <meta name="description" content="Thế Giới Tủ Lạnh, mua sắm tủ lạnh online tại thegioitulanh.vn giá rẻ chính hãng phục vụ chuyên nghiệp. Nhiều ưu đãi, giao và lắp đặt miễn phí"/>
