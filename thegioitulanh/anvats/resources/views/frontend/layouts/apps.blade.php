@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+       
         @if(!empty($data->Name))
 
             <?php 
@@ -14,15 +15,12 @@
             ?>
         @else
         
-            @if(!empty($namecate))
+            @if(!empty($name_cate))
+
 
                 <?php 
 
-                    dd($namecate);
-                ?>
-
-                <?php 
-                    $title_seo = $namecate.' chính hãng tại kho - Thế giới tủ lạnh';
+                    $title_seo = $name_cate.' chính hãng tại kho - Thế giới tủ lạnh';
                    
                 ?>
             
@@ -42,7 +40,6 @@
         <meta property="fb:app_id" content="893882260753407" />
         <meta property="og:title" content="Thế Giới Tủ Lạnh - Tổng Kho Tủ Lạnh Chính Hãng, Giá Rẻ" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dienmayabc.com/" />
        
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Array

@@ -197,9 +197,6 @@ class categoryController extends Controller
         }
         else{
             $data = $this->getDataOfCate($slug);
-
-
-
             return view('frontend.category', with($data));
         }
        
@@ -323,12 +320,15 @@ class categoryController extends Controller
                 
             });
             
+           
+            $name_cate = (groupProduct::find($id_cate))->name;
             
 
             $data = [
                 'data'=>$data,
                 'filter'=>$filter,
                 'id_cate'=>$id_cate,
+                'name_cate'=>$name_cate,
                 'link'=>$link,
                 'ar_list'=>$ar_list,
                 'slogan'=>$slogan,
